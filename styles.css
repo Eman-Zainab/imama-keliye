@@ -1,0 +1,248 @@
+
+body{
+    background-color:#FFF8EA ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+section.start h1{
+    padding: 30px;
+    text-align: center;
+    color: #444;
+    background-color:#FF9B9B;
+}
+
+section.wishes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align:justify;
+    padding: 100px;
+    background: #FFCBCB ;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+section.wishes div{
+    text-align: center;
+    align-items: center ;
+}
+
+section.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 180px;
+    background: #FFE3E1;
+}
+#img1{
+    height: 300px;
+    width:300px;
+}
+
+section.image-gallery img {
+    width: 48%; 
+    margin: 1%; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+section.image-gallery img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+h1, h2 {
+    color: #444;
+}
+
+p {
+    line-height: 1.5;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+section.last p{
+    text-align: center;
+    font-size: large;
+    background-color:#FF6666;
+    padding: 30px;
+}
+
+
+.heartbeat {
+    position: absolute;
+    top: 117%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: red;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 120px red;
+    animation: heartbeat 0.6s linear infinite;
+}
+@keyframes heartbeat {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.8);
+    }
+    
+}
+
+.heartbeat::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    top: -50%;
+    border-radius: 60px;
+    box-shadow: -10px 10px 120px red;
+}
+.heartbeat::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    right: -50%;
+    border-radius: 60px;
+    box-shadow: -10px 10px 120px red;
+}
+section.heart-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    padding: 50px;
+    background:#FFB3B3;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#line path{
+    stroke-dasharray: 1564;
+    stroke-dashoffset: 1564;
+    animation: line-anim 4s linear infinite;
+}
+
+@keyframes line-anim {
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+:root{
+    --primary: #fff;
+    --bg-color: #FF6666;
+    --bg-envelope-color: #f5edd1;
+    --envelope-tab: #ecdeb8;
+    --envelope-cover: #e6cfa7;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color: #444;
+    --heart-color: rgb(252, 8, 231);
+  }
+section.letter-envelop{
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  .container > .envelope-wrapper {
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+  }
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 300px;
+    height: 230px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 150px solid var(--envelope-cover);
+    border-bottom: 100px solid var(--envelope-cover);
+    border-left: 150px solid var(--envelope-cover);
+  }
+  .envelope > .letter {
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    width: 54%;
+    height: 80%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 1s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 20px 10px;
+  }
+  
+  .envelope > .letter > .text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--txt-color);
+    text-align: left;
+    font-size: 7px;
+  }
+  .heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: var(--heart-color);
+    z-index: 4;
+    transform: translate(-50%, -20%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    box-shadow: 0 1px 6px var(--shadow-color);
+    cursor: pointer;
+  }
+  .heart:before, 
+  .heart:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--heart-color);
+    border-radius: 50%;
+  }
+  .heart:before {
+    top: -7.5px;
+  }
+  .heart:after {
+    right: 7.5px;
+  }
+  .flap > .envelope:before {
+    transform: rotateX(180deg);
+    z-index: 0;
+  }
+  .flap > .envelope > .letter {
+    bottom: 100px;
+    transform: scale(1.5);
+    transition-delay: 1s;
+  }
+  .flap > .heart {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+  }
